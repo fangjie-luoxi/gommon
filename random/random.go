@@ -6,10 +6,8 @@ import (
 	"time"
 )
 
-type (
-	Random struct {
-	}
-)
+type Random struct {
+}
 
 // Charsets
 const (
