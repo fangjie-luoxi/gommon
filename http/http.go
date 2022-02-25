@@ -59,9 +59,6 @@ func PostJSON(uri string, obj interface{}) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	jsonData = bytes.Replace(jsonData, []byte("\\u003c"), []byte("<"), -1)
-	jsonData = bytes.Replace(jsonData, []byte("\\u003e"), []byte(">"), -1)
-	jsonData = bytes.Replace(jsonData, []byte("\\u0026"), []byte("&"), -1)
 	body := bytes.NewBuffer(jsonData)
 	response, err := http.Post(uri, "application/json;charset=utf-8", body)
 	if err != nil {
@@ -80,9 +77,6 @@ func PostJSONWithToken(uri, token string, obj interface{}) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	/*jsonData = bytes.Replace(jsonData, []byte("\\u003c"), []byte("<"), -1)
-	jsonData = bytes.Replace(jsonData, []byte("\\u003e"), []byte(">"), -1)
-	jsonData = bytes.Replace(jsonData, []byte("\\u0026"), []byte("&"), -1)*/
 	body := bytes.NewBuffer(jsonData)
 
 	client := &http.Client{}
